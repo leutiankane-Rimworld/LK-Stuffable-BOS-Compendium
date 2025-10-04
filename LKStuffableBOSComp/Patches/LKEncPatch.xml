@@ -88,6 +88,22 @@
 
 	<!--VEF Shield Bubble-->
 	<Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]/tickerType</xpath>
+		<nomatch Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]</xpath>
+		<value>
+		<tickerType>Normal</tickerType>
+		</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]/tickerType</xpath>
+	<value>
+	<tickerType>Normal</tickerType>
+    </value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
         <xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]/comps</xpath>
 		<nomatch Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]</xpath>
@@ -107,7 +123,7 @@
 		<showOnHostiles>true</showOnHostiles>
 		<showOnNeutralInCombat>true</showOnNeutralInCombat>
 		<shieldTexPath>Other/ShieldBubble</shieldTexPath>
-		<EnergyShieldRechargeRate>0.9</EnergyShieldRechargeRate>
+		<EnergyShieldRechargeRate>0.4</EnergyShieldRechargeRate>
 		<EnergyShieldEnergyMax>250</EnergyShieldEnergyMax>
 		<minShieldSize>1.4</minShieldSize>
 		<maxShieldSize>1.8</maxShieldSize>
@@ -116,6 +132,7 @@
 	</li>
     </value>
 	</Operation>
+	
 	
   
 </Patch>
