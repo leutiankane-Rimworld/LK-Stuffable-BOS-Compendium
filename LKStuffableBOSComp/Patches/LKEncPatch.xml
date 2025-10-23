@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+<Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[@Name="Enc_ApparelUniformBase"]</xpath>
+		<value>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="Enc_ApparelUniformBase"]</xpath>
+		<value>
+		<costStuffCount>100</costStuffCount>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[@Name="Enc_CapBase"]</xpath>
+		<value>
+		<stuffCategories>
+			<li>Metallic</li>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		</value>
+	</Operation>
+	
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="Enc_CapBase"]</xpath>
+		<value>
+		<costStuffCount>100</costStuffCount>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[@Name="Enc_FlakArmorBase"]</xpath>
+		<value>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		</value>
+	</Operation>
+	
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="Enc_FlakArmorBase"]</xpath>
+		<value>
+		<costStuffCount>100</costStuffCount>
+		</value>
+	</Operation>
+
+<Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]</xpath>
+		<value>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		</value>
+	</Operation>
+	
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]</xpath>
+		<value>
+		<costStuffCount>100</costStuffCount>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[@Name="Enc_PowerHelmetBase"]</xpath>
+		<value>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		</value>
+	</Operation>
+	
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="Enc_PowerHelmetBase"]</xpath>
+		<value>
+		<costStuffCount>100</costStuffCount>
+		</value>
+	</Operation>
+
+
+
+	<!--VEF Shield Bubble-->
+	<Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]/tickerType</xpath>
+		<nomatch Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]</xpath>
+		<value>
+		<tickerType>Normal</tickerType>
+		</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]/tickerType</xpath>
+	<value>
+	<tickerType>Normal</tickerType>
+    </value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]/statBases</xpath>
+		<nomatch Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]</xpath>
+		<value>
+		<statBases />
+		</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]/statBases</xpath>
+	<value>
+	<EnergyShieldRechargeRate>0.02</EnergyShieldRechargeRate>
+	<EnergyShieldEnergyMax>2.5</EnergyShieldEnergyMax>
+	<StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+    <StuffEffectMultiplierInsulation_Cold>0.55</StuffEffectMultiplierInsulation_Cold>
+    <StuffEffectMultiplierInsulation_Heat>0.55</StuffEffectMultiplierInsulation_Heat>
+	</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]</xpath>
+		<value>
+		<comps />
+		</value>
+		</nomatch>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[@Name="Enc_PowerArmorBase"]/comps</xpath>
+	<value>
+	<li Class="VEF.Apparels.CompProperties_ShieldBubble" MayRequire="OskarPotocki.VanillaFactionsExpanded.Core">
+		<compClass>VEF.Apparels.CompShieldBubble</compClass>
+		<blockRangedAttack>true</blockRangedAttack>
+		<blockMeleeAttack>false</blockMeleeAttack>
+		<showWhenDrafted>true</showWhenDrafted>
+		<showOnHostiles>true</showOnHostiles>
+		<showOnNeutralInCombat>true</showOnNeutralInCombat>
+		<shieldTexPath>Other/ShieldBubble</shieldTexPath>
+		<minShieldSize>1.4</minShieldSize>
+		<maxShieldSize>1.8</maxShieldSize>
+		<disableRotation>true</disableRotation>
+    <chargeFullyWhenMade>true</chargeFullyWhenMade>
+	</li>
+    </value>
+	</Operation>
+	
+  
+</Patch>
